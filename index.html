@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dicionário de Dados - KF Imports</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <button id="menuBtn" class="btn ghost" aria-label="Abrir menu">Menu</button>
+  <div class="ttl"><strong>Dicionário de Dados - Sistema de Gestão Operacional, Vendas e Assistência Técnica</strong><span>KF Imports</span></div>
+  <button id="themeBtn" class="btn ghost">Modo escuro</button>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar"><h3>Tabelas (<span id="cnt">0</span>)</h3><ul id="navList"></ul></nav>
+  <main>
+    <section class="card" id="identificacao">
+      <h2>Identificação do Projeto</h2>
+      <p><b>Escopo:</b> Banco de dados relacional da KF Imports, microempresa com loja física única em São Paulo/SP, que atua no varejo de acessórios de telefonia e na assistência técnica de smartphones. Cobre clientes e aparelhos, ordens de serviço, vendas de balcão, caixa, estoque, compras no Brás, estornos, privacidade (LGPD) e auditoria. Orientador: Prof. Dr. Diego Marques de Carvalho (UNICID - Ciência da Computação).</p>
+      <p><b>Tecnologia:</b> MySQL 8.4 LTS (InnoDB, utf8mb4, utf8mb4_0900_ai_ci). Schema: <code>assistencia_tecnica</code>. Documento v2.2 / DDL v2.2.</p>
+      <p><b>Responsáveis:</b></p>
+      <ul>
+        <li><b>Data Owner (regras de negócio):</b> Kaique Vieira (KF Imports)</li>
+        <li><b>Data Stewards (qualidade técnica e dicionário):</b> Guilherme Lima Araujo (RGM 47058773), Diogo Cora (RGM 47071974), Júlio César Rocha (RGM 47422432), Giovanni Henrique Tartaro (RGM 47048026), Arthur Henrique Alves (RGM 47332361), Vitor Arruda dos Santos (RGM 47351241)</li>
+      </ul>
+      <p class="note">Legenda de privacidade: <span class="badge s">DPS</span> dado pessoal sensível ou credencial crítica; <span class="badge p">DP</span> dado pessoal; <span class="badge n">N/A</span> não aplicável. Triggers, procedures e views citados em Linhagem e RBAC são implementação prevista (Anexo A2 da especificação).</p>
+    </section>
+    <section class="card controls">
+      <a class="btn" href="docs/Especificacao_Requisitos_Regras_Negocio_BD.pdf" download>Baixar Especificação de Requisitos (PDF)</a>
+      <button id="derBtn" class="btn">Abrir DER</button>
+      <input id="search" type="search" placeholder="Filtrar por tabela ou coluna..." aria-label="Filtrar">
+    </section>
+    <div id="dict"></div>
+    <p id="empty" class="card" hidden>Nenhuma tabela ou coluna encontrada.</p>
+  </main>
+</div>
+<div id="modal" class="modal" hidden>
+  <div class="mbar">
+    <button class="btn" id="zin">Zoom +</button><button class="btn" id="zout">Zoom -</button><button class="btn" id="zrst">Reset</button><button class="btn" id="mclose">Fechar</button>
+  </div>
+  <div id="stage" class="stage"><img id="derImg" src="assets/der.png" alt="Diagrama Entidade-Relacionamento" draggable="false"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
